@@ -19,4 +19,11 @@ const initialiseStore = (initialState = {}) => {
   const reducers = combineReducers({
     dummyReducer
   })
+  const middleware = applyMiddleware(
+    thunk,
+    logger // logger must go last to function correctly
+  )
+  return createStore(reducers, initialState, middleware)
 }
+
+export default initialiseStore()

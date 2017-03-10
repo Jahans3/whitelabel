@@ -7,7 +7,7 @@ import store from '../store'
 import Root from './Root'
 
 export default class Setup extends PureComponent {
-  render() {
+  render () {
     return (
       <Provider store={store}>
         <Root />
