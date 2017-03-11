@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 import { TabBarIOS } from 'react-native'
-import { Container } from 'native-base'
+import { Container, Text } from 'native-base'
 import VIcon from 'react-native-vector-icons/Ionicons'
 
 export default class SceneDirectory extends Component {
@@ -19,16 +19,15 @@ export default class SceneDirectory extends Component {
     return this.props.routes.map(route => {
       const { component: Component, title, id, props } = route
       return (
-        <VIcon.TabBarIOSItem
+        <VIcon.TabBarItemIOS
           title={title}
-          selected={() => this.setState({ activeRoute: id })}
+          selected={this.state.activeRoute === id}
+          onPress={() => this.setState({ activeRoute: id })}
           iconName={'ios-home'}
           key={id}
         >
-          <Container>
-            <Component {...props} />
-          </Container>
-        </VIcon.TabBarIOSItem>
+          <Component {...props} />
+        </VIcon.TabBarItemIOS>
       )
     })
   }
