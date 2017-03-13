@@ -15,7 +15,9 @@ const mergeProps = ({ state }, { dispatch }, ownProps) => {
       id: 'home',
       index: 0,
       component: HomeScene,
-      props: {}
+      props: {},
+      leftButtonIcon: 'ios-menu',
+      rightButtonIcon: 'ios-pin'
     }
   ]
   return {

@@ -5,19 +5,27 @@ import React, { Component } from 'react'
 import { TabBarIOS } from 'react-native'
 import { Container } from 'native-base'
 import VIcon from 'react-native-vector-icons/Ionicons'
+import HeaderBar from '../../HeaderBar'
 
 export default class SceneDirectory extends Component {
-  constructor () {
-    super()
-    this._renderItems = this._renderItems.bind(this)
-    this.state = {
-      activeRoute: 'home'
-    }
+  state = {
+    activeRoute: 'home'
   }
 
-  _renderItems () {
+  _renderItems = () => {
     return this.props.routes.map(route => {
-      const { component: Component, title, id, props } = route
+      const {
+        component: Component,
+        title,
+        id,
+        props = {},
+        onPressLeft = () => {},
+        onPressRight = () => {},
+        leftButtonIcon,
+        rightButtonIcon,
+        leftButtonText,
+        rightButtonText
+      } = route
       return (
         <VIcon.TabBarItemIOS
           title={title}
@@ -26,7 +34,18 @@ export default class SceneDirectory extends Component {
           iconName={'ios-home'}
           key={id}
         >
-          <Component {...props} />
+          <Container style={{ marginBottom: 50 }}>
+            <HeaderBar
+              title={title}
+              onPressLeft={onPressLeft}
+              onPressRight={onPressRight}
+              leftButtonIcon={leftButtonIcon}
+              rightButtonIcon={rightButtonIcon}
+              leftButtonText={leftButtonText}
+              rightButtonText={rightButtonText}
+            />
+            <Component {...props} />
+          </Container>
         </VIcon.TabBarItemIOS>
       )
     })
@@ -34,15 +53,13 @@ export default class SceneDirectory extends Component {
 
   render () {
     return (
-      <Container>
-        <TabBarIOS
-          tintColor='#000000' // TODO - global styles
-          unselectedItemTintColor='#b2b2b2'
-          barTintColor='#ffffff'
-        >
-          {this._renderItems()}
-        </TabBarIOS>
-      </Container>
+      <TabBarIOS
+        tintColor='#000000' // TODO - global styles
+        unselectedItemTintColor='#b2b2b2'
+        barTintColor='#ffffff'
+      >
+        {this._renderItems()}
+      </TabBarIOS>
     )
   }
 }
