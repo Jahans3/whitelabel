@@ -402,7 +402,7 @@ babel-plugin-syntax-trailing-function-commas@^6.20.0, babel-plugin-syntax-traili
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
 
-babel-plugin-transform-class-properties@^6.5.0, babel-plugin-transform-class-properties@^6.6.0, babel-plugin-transform-class-properties@^6.8.0:
+babel-plugin-transform-class-properties@^6.23.0, babel-plugin-transform-class-properties@^6.5.0, babel-plugin-transform-class-properties@^6.6.0, babel-plugin-transform-class-properties@^6.8.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-class-properties/-/babel-plugin-transform-class-properties-6.23.0.tgz#187b747ee404399013563c993db038f34754ac3b"
   dependencies:
@@ -3016,7 +3016,7 @@ react-native-easy-grid@0.1.7:
   dependencies:
     lodash "^4.11.1"
 
-react-native-easy-grid@^0.1.8:
+react-native-easy-grid@0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/react-native-easy-grid/-/react-native-easy-grid-0.1.8.tgz#7953fb85e0e2c316d814bbd189cb9efdf56ff2a5"
   dependencies:
@@ -3034,7 +3034,7 @@ react-native-scrollable-tab-view@^0.7.1:
   dependencies:
     react-timer-mixin "^0.13.3"
 
-react-native-vector-icons@^4.0.0, react-native-vector-icons@~4.0.0:
+react-native-vector-icons@4.0.0, react-native-vector-icons@~4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.0.0.tgz#6a2f8f4c6ace613aed7748cd530809283e5b1538"
   dependencies:

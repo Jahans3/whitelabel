@@ -6,11 +6,8 @@ import { Button, Icon, Text } from 'native-base'
 
 const HeaderButton = ({ title = false, textContent, iconName, onPress }) => (
   <Button title={title} transparent onPress={onPress}>
-    {
-      textContent
-      ? <Text>{textContent}</Text>
-      : <Icon name={iconName} />
-    }
+    {iconName && <Icon name={iconName} />}
+    {textContent && <Text>{textContent}</Text>}
   </Button>
 )
 
