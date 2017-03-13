@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 import { TabBarIOS } from 'react-native'
-import { Container, Text } from 'native-base'
+import { Container } from 'native-base'
 import VIcon from 'react-native-vector-icons/Ionicons'
 
 export default class SceneDirectory extends Component {
