@@ -2,7 +2,7 @@
  * Created by joshjahans on 10/03/2017.
  */
 import React, { Component } from 'react'
-import { TabBarIOS, Navigator } from 'react-native'
+import { TabBarIOS, NavigatorIOS } from 'react-native'
 import { Container } from 'native-base'
 import VIcon from 'react-native-vector-icons/Ionicons'
 import HeaderBar from '../../HeaderBar'
@@ -16,6 +16,9 @@ export default class SceneDirectory extends Component {
     switch (id) {
       case 'home':
         return 'ios-home'
+
+      case 'account':
+        return 'ios-person'
     }
   }
 
@@ -50,21 +53,12 @@ export default class SceneDirectory extends Component {
         component,
         title,
         id,
-        props = {},
+        props: passProps = {},
         leftButtonComponent,
         leftButtonProps,
         rightButtonComponent,
         rightButtonProps
       } = tab
-      const route = {
-        title,
-        component,
-        props,
-        leftButtonComponent,
-        rightButtonComponent,
-        leftButtonProps,
-        rightButtonProps
-      }
       const icon = SceneDirectory._mapIdToIconName({ id })
       return (
         <VIcon.TabBarItemIOS
@@ -74,10 +68,12 @@ export default class SceneDirectory extends Component {
           iconName={icon}
           key={id}
         >
-          <Navigator
-            initialRoute={route}
-            renderScene={(route, navigator) => {
-              return this._renderScene({ route, navigator })
+          <NavigatorIOS
+            style={{ flex: 1 }}
+            initialRoute={{
+              component,
+              title,
+              passProps
             }}
           />
         </VIcon.TabBarItemIOS>

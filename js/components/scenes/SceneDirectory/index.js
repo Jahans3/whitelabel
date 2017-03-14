@@ -27,6 +27,23 @@ const mergeProps = ({ state }, { dispatch }, ownProps) => {
         iconName: 'ios-pin',
         onPress: () => { console.log('tappy tap') }
       }
+    },
+    {
+      title: 'Account',
+      id: 'account',
+      index: 1,
+      component: HomeScene,
+      props: {},
+      leftButtonComponent: Buttons.HeaderButton,
+      leftButtonProps: {
+        iconName: 'ios-home',
+        onPress: () => { console.log('go home kiddo') }
+      },
+      rightButtonComponent: Buttons.HeaderButton,
+      rightButtonProps: {
+        iconName: 'ios-pin',
+        onPress: () => { console.log('tappy tap') }
+      }
     }
   ]
   return {
