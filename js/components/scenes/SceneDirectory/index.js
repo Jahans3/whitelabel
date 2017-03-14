@@ -10,7 +10,7 @@ import { Buttons } from '../../subcomponents'
 const mapStateToProps = state => ({ state })
 const mapDispatchToProps = dispatch => ({ dispatch })
 const mergeProps = ({ state }, { dispatch }, ownProps) => {
-  const routes = [
+  const tabs = [
     {
       title: 'Home',
       id: 'home',
@@ -18,12 +18,12 @@ const mergeProps = ({ state }, { dispatch }, ownProps) => {
       component: HomeScene,
       props: {},
       leftButtonComponent: Buttons.HeaderButton,
-      leftProps: {
+      leftButtonProps: {
         iconName: 'ios-home',
         onPress: () => { console.log('go home kiddo') }
       },
       rightButtonComponent: Buttons.HeaderButton,
-      rightProps: {
+      rightButtonProps: {
         iconName: 'ios-pin',
         onPress: () => { console.log('tappy tap') }
       }
@@ -31,7 +31,7 @@ const mergeProps = ({ state }, { dispatch }, ownProps) => {
   ]
   return {
     ...ownProps,
-    routes
+    tabs
   }
 }
 

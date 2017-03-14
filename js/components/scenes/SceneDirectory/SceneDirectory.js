@@ -2,7 +2,7 @@
  * Created by joshjahans on 10/03/2017.
  */
 import React, { Component } from 'react'
-import { TabBarIOS } from 'react-native'
+import { TabBarIOS, Navigator } from 'react-native'
 import { Container } from 'native-base'
 import VIcon from 'react-native-vector-icons/Ionicons'
 import HeaderBar from '../../HeaderBar'
@@ -19,18 +19,52 @@ export default class SceneDirectory extends Component {
     }
   }
 
+  _renderScene = ({ route, navigator }) => {
+    const {
+      title,
+      component: Component,
+      props,
+      leftButtonComponent,
+      rightButtonComponent,
+      leftButtonProps,
+      rightButtonProps
+    } = route
+    return (
+      <Container style={{ marginBottom: 50 }}>
+        <HeaderBar
+          title={title}
+          leftComponent={leftButtonComponent}
+          rightComponent={rightButtonComponent}
+          leftProps={leftButtonProps}
+          rightProps={rightButtonProps}
+        />
+        <Component {...props} />
+      </Container>
+    )
+  }
+
   _renderItems = () => {
-    return this.props.routes.map(route => {
+    return this.props.tabs.map(tab => {
       const {
-        component: Component,
+        index,
+        component,
         title,
         id,
         props = {},
         leftButtonComponent,
-        leftProps,
+        leftButtonProps,
         rightButtonComponent,
-        rightProps
-      } = route
+        rightButtonProps
+      } = tab
+      const route = {
+        title,
+        component,
+        props,
+        leftButtonComponent,
+        rightButtonComponent,
+        leftButtonProps,
+        rightButtonProps
+      }
       const icon = SceneDirectory._mapIdToIconName({ id })
       return (
         <VIcon.TabBarItemIOS
@@ -40,16 +74,12 @@ export default class SceneDirectory extends Component {
           iconName={icon}
           key={id}
         >
-          <Container style={{ marginBottom: 50 }}>
-            <HeaderBar
-              title={title}
-              leftButtonComponent={leftButtonComponent}
-              rightButtonComponent={rightButtonComponent}
-              leftProps={leftProps}
-              rightProps={rightProps}
-            />
-            <Component {...props} />
-          </Container>
+          <Navigator
+            initialRoute={route}
+            renderScene={(route, navigator) => {
+              return this._renderScene({ route, navigator })
+            }}
+          />
         </VIcon.TabBarItemIOS>
       )
     })

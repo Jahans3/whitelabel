@@ -8,16 +8,16 @@ export default class HeaderBar extends Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    leftButtonComponent: PropTypes.func,
-    rightButtonComponent: PropTypes.func,
+    leftComponent: PropTypes.func,
+    rightComponent: PropTypes.func,
     leftProps: PropTypes.object,
     rightProps: PropTypes.object
   }
 
   render () {
     const {
-      leftButtonComponent: LeftComponent,
-      rightButtonComponent: RightComponent
+      leftComponent: LeftComponent,
+      rightComponent: RightComponent
     } = this.props
     return (
       <Header>
