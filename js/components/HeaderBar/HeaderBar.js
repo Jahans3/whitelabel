@@ -2,8 +2,7 @@
  * Created by joshjahans on 11/03/2017.
  */
 import React, { Component, PropTypes } from 'react'
-import { Container, Header, Left, Body, Right, Title } from 'native-base'
-import { HeaderButton } from '../subcomponents/Buttons'
+import { Header, Left, Body, Right, Title } from 'native-base'
 
 export default class HeaderBar extends Component {
 
