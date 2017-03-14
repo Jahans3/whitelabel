@@ -3,6 +3,6 @@
  */
 import HeaderButton from './HeaderButton'
 
-export {
+export default {
   HeaderButton
 }

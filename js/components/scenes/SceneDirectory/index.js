@@ -5,6 +5,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import SceneDirectory from './SceneDirectory'
 import HomeScene from '../HomeScene'
+import { Buttons } from '../../subcomponents'
 
 const mapStateToProps = state => ({ state })
 const mapDispatchToProps = dispatch => ({ dispatch })
@@ -16,8 +17,16 @@ const mergeProps = ({ state }, { dispatch }, ownProps) => {
       index: 0,
       component: HomeScene,
       props: {},
-      leftButtonIcon: 'ios-menu',
-      rightButtonIcon: 'ios-pin'
+      leftButtonComponent: Buttons.HeaderButton,
+      leftProps: {
+        iconName: 'ios-home',
+        onPress: () => { console.log('go home kiddo') }
+      },
+      rightButtonComponent: Buttons.HeaderButton,
+      rightProps: {
+        iconName: 'ios-pin',
+        onPress: () => { console.log('tappy tap') }
+      }
     }
   ]
   return {

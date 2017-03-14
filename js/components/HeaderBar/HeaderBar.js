@@ -6,35 +6,34 @@ import { Container, Header, Left, Body, Right, Title } from 'native-base'
 import { HeaderButton } from '../subcomponents/Buttons'
 
 export default class HeaderBar extends Component {
+
   static propTypes = {
     title: PropTypes.string.isRequired,
-    leftButtonText: PropTypes.string,
-    rightButtonText: PropTypes.string,
-    onPressLeft: PropTypes.func.isRequired,
-    onPressRight: PropTypes.func.isRequired,
-    leftButtonIcon: PropTypes.string.isRequired,
-    rightButtonIcon: PropTypes.string.isRequired
+    leftButtonComponent: PropTypes.func,
+    rightButtonComponent: PropTypes.func,
+    leftProps: PropTypes.object,
+    rightProps: PropTypes.object
   }
 
   render () {
+    const {
+      leftButtonComponent: LeftComponent,
+      rightButtonComponent: RightComponent
+    } = this.props
     return (
       <Header>
         <Left>
-          <HeaderButton
-            textContent={this.props.leftButtonText}
-            onPress={this.props.onPressLeft}
-            iconName={this.props.leftButtonIcon}
-          />
+          {
+            LeftComponent && <LeftComponent {...this.props.leftProps} />
+          }
         </Left>
         <Body>
           <Title>{this.props.title}</Title>
         </Body>
         <Right>
-          <HeaderButton
-            textContent={this.props.rightButtonText}
-            onPress={this.props.onPressRight}
-            iconName={this.props.rightButtonIcon}
-          />
+          {
+            RightComponent && <RightComponent {...this.props.rightProps} />
+          }
         </Right>
       </Header>
     )

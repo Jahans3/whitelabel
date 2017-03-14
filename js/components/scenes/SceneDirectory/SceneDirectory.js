@@ -12,6 +12,13 @@ export default class SceneDirectory extends Component {
     activeRoute: 'home'
   }
 
+  static _mapIdToIconName ({ id }) {
+    switch (id) {
+      case 'home':
+        return 'ios-home'
+    }
+  }
+
   _renderItems = () => {
     return this.props.routes.map(route => {
       const {
@@ -19,30 +26,27 @@ export default class SceneDirectory extends Component {
         title,
         id,
         props = {},
-        onPressLeft = () => {},
-        onPressRight = () => {},
-        leftButtonIcon,
-        rightButtonIcon,
-        leftButtonText,
-        rightButtonText
+        leftButtonComponent,
+        leftProps,
+        rightButtonComponent,
+        rightProps
       } = route
+      const icon = SceneDirectory._mapIdToIconName({ id })
       return (
         <VIcon.TabBarItemIOS
           title={title}
           selected={this.state.activeRoute === id}
           onPress={() => this.setState({ activeRoute: id })}
-          iconName={'ios-home'}
+          iconName={icon}
           key={id}
         >
           <Container style={{ marginBottom: 50 }}>
             <HeaderBar
               title={title}
-              onPressLeft={onPressLeft}
-              onPressRight={onPressRight}
-              leftButtonIcon={leftButtonIcon}
-              rightButtonIcon={rightButtonIcon}
-              leftButtonText={leftButtonText}
-              rightButtonText={rightButtonText}
+              leftButtonComponent={leftButtonComponent}
+              rightButtonComponent={rightButtonComponent}
+              leftProps={leftProps}
+              rightProps={rightProps}
             />
             <Component {...props} />
           </Container>
