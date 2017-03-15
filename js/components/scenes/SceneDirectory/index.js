@@ -3,52 +3,15 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
+import { Navigation } from 'react-native-navigation'
 import SceneDirectory from './SceneDirectory'
-import HomeScene from '../HomeScene'
-import { Buttons } from '../../subcomponents'
 
 const mapStateToProps = state => ({ state })
 const mapDispatchToProps = dispatch => ({ dispatch })
 const mergeProps = ({ state }, { dispatch }, ownProps) => {
-  const tabs = [
-    {
-      title: 'Home',
-      id: 'home',
-      index: 0,
-      component: HomeScene,
-      props: {},
-      leftButtonComponent: Buttons.HeaderButton,
-      leftButtonProps: {
-        iconName: 'ios-home',
-        onPress: () => { console.log('go home kiddo') }
-      },
-      rightButtonComponent: Buttons.HeaderButton,
-      rightButtonProps: {
-        iconName: 'ios-pin',
-        onPress: () => { console.log('tappy tap') }
-      }
-    },
-    {
-      title: 'Account',
-      id: 'account',
-      index: 1,
-      component: HomeScene,
-      props: {},
-      leftButtonComponent: Buttons.HeaderButton,
-      leftButtonProps: {
-        iconName: 'ios-home',
-        onPress: () => { console.log('go home kiddo') }
-      },
-      rightButtonComponent: Buttons.HeaderButton,
-      rightButtonProps: {
-        iconName: 'ios-pin',
-        onPress: () => { console.log('tappy tap') }
-      }
-    }
-  ]
+
   return {
-    ...ownProps,
-    tabs
+    ...ownProps
   }
 }
 
