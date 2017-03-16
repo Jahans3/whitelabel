@@ -17,6 +17,7 @@ const palette = {
     grey: '#8e8e8e',
     purple: '#3a3064',
     red: '#ff6360',
+    blue: '#339999',
     green: '#bdecb6',
     yellow: '#ffe19c',
     white: '#fcfcfc',
